@@ -70,7 +70,7 @@ public class HelloController {
     //要件1:エンドポイントにGET通信をしたときに、レスポンスが返却されるようにする
     //エンドポイント：http://localhost:8080/users/{user_id}
     @GetMapping ("/users/{id}")//GetMappingはURL検索でアクセスされた時に実行する
-    public User getAllEmployees(@PathVariable int id){//メソッドを宣言　処理が終わるとEmployeeのリストを返す PathVariableは{}の値を変数名に格納
+    public User getUserById(@PathVariable int id){//メソッドを宣言　処理が終わるとEmployeeのリストを返す PathVariableは{}の値を変数名に格納
         String sql = "SELECT id,name,email FROM employee WHERE id = ?";//DBに命令するSQL文を変数sqlに格納
         User user = jdbcTemplate.queryForObject(//jdbcTemplate.queryForObject()はDBに対してSQLを実行する
             sql,//第一引数：命令文を渡す　BeanPropertyRowMapperはDBから返ってきたデータを列名とクラスのプロパティを結びつける
